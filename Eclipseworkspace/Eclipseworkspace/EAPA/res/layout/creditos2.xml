@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <WebView 
+        android:id="@+id/fragment_creditos" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"/>
+
+    <Button
+        android:id="@+id/My_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/My_btn3"
+        android:background="@drawable/bbkg"
+        android:text="@string/voltar"
+        android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/My_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/My_btn3"
+            android:layout_alignBottom="@+id/My_btn3"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/My_btn3"
+            android:background="@drawable/bbkg"
+            android:text="@string/avancar"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/My_btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/My_btn1"
+            android:layout_alignBottom="@+id/My_btn1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bbkg"
+        	android:text="@string/refresh"
+        	android:textColor="#fff" />
+
+</RelativeLayout>

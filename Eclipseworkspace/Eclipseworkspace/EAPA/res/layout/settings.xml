@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <TextView
+        android:id="@+id/settingsTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layerlist"
+        android:paddingTop="5dp"
+        android:text="@string/titulodefinicoes"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#23a4cf" />
+
+    <CheckBox
+        android:id="@+id/settingsCheckBox1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/layerlist"
+        android:gravity="left|center_vertical"
+        android:text="@string/settings1"
+        android:textColor="#fff" />
+
+    <Switch
+        android:id="@+id/settingsSwitch1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/layerlist"
+        android:text="@string/settings2"
+        android:textColor="#fff" />
+
+    <CheckBox
+        android:id="@+id/settingsCheckBox2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/layerlist"
+        android:gravity="left|center_vertical"
+        android:text="@string/settings3"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/settingsBt1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bbkg"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:text="@string/repordefinicoes"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/settingsBt2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/bbkg"
+        android:text="@string/guardar"
+        android:textColor="#fff" />
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginbuttons"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/loginBtEntrar"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/entrar"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#30b3e3" />
+
+    <Button
+        android:id="@+id/loginBtSair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/sair"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fff" />
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_report">
+        <EditTextPreference 
+            android:title="@string/pref_send_report" 
+            android:summary="@string/pref_send_report_summary"
+            android:key="prefUsername"/>
+
+<!--         <ListPreference 
+            android:key="prefSyncFrequency" 
+            android:entries="@array/syncFrequency" 
+            android:summary="@string/pref_frequencia_summary" 
+            android:entryValues="@array/syncFrequency" 
+            android:title="@string/pref_frequencia"/> -->
+            </PreferenceCategory>
+    	<PreferenceCategory 
+            android:title="@string/pref_privado">
+        <CheckBoxPreference 
+            android:defaultValue="false" 
+            android:key="prefSendReport" 
+            android:summary="@string/pref_autologin_summary" 
+            android:title="@string/pref_autologin">
+        </CheckBoxPreference>
+        </PreferenceCategory>
+
+            
+            </PreferenceScreen>

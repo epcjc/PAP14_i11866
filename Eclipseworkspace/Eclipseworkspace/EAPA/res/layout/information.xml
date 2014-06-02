@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <Button
+        android:id="@+id/infoBt3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/bbkg"
+        android:text="@string/fechar"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/infoBt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/infoBt3"
+        android:layout_alignLeft="@+id/infoBt3"
+        android:background="@drawable/bbkg"
+        android:text="@string/titulotermos"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/infoBt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/infoBt2"
+        android:layout_alignLeft="@+id/infoBt2"
+        android:background="@drawable/bbkg"
+        android:text="@string/politica"
+        android:textColor="#fff" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/infoBt1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/layerlist" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <TextView
+        android:id="@+id/sobre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layerlist"
+        android:text="@string/sobre"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#30b3e3" />
+            <TextView
+                android:id="@+id/infoTextView0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/layerlist"
+                android:gravity="center_vertical"
+                android:text="@string/apresentacao"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+            
+            <TextView
+        android:id="@+id/infoTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layerlist"
+        android:text="@string/tituloinfo"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#30b3e3" />
+
+            <TextView
+                android:id="@+id/infoTextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/layerlist"
+                android:gravity="center_vertical"
+                android:text="@string/versaoandroid"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/infoTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layerlist"
+                android:gravity="center_vertical"
+                android:text="@string/nomeapp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/infoTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/layerlist"
+                android:gravity="center_vertical"
+                android:text="@string/versaoapp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/infoTextView4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="40.92"
+                android:background="@drawable/layerlist"
+                android:text="@string/maisinfo"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/infoTextView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="8.11"
+                android:background="@drawable/layerlist"
+                android:gravity="center_vertical"
+                android:text="@string/developer"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

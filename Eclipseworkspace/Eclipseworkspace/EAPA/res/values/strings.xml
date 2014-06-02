@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    
+   
+    <string name="pref_report">Reports</string>
+   	<string name="pref_send_report">Reportar Erro</string>
+    <string name="pref_send_report_summary">Ajude-nos a melhorar</string>
+    <string name="pref_submit">Enviar</string>
+    <string name="pref_privado">Privado</string>
+    <string name="pref_autologin">Autenticação automática</string>
+    <string name="pref_autologin_summary">Aviso: Qualquer utilizador poderá utilizar a sua conta</string>
+    <string name="pref_atualizacoes">Atualizações</string>
+    <string name="pref_atualizarAuto">Atualizações automáticas</string>
+    <string name="pref_atualizarAuto_summary">Atualizar app automáticamente</string>
+    <string name="pref_atualizarWIFI">Apenas WI-FI</string>
+    <string name="pref_atualizarWIFI_summary">Atualizar apenas quando ligado a uma rede WI-FI</string>
+    
+
+    <string name="app_name">EAPA</string>
+    <string name="pw">Password:</string>
+    <string name="email">Email:</string>
+    <string name="action_settings">Definições</string>
+    <string name="title_section1">Créditos</string>
+    <string name="title_section2">Equipamento</string>
+    <string name="title_section3">Tab 3</string>
+    <string name="title_section4">info</string>
+    <string name="voltar">Voltar</string>
+    <string name="avancar">Avançar</string>
+    <string name="refresh">Início</string>
+    <string name="terminar">Terminar Sessão</string>
+    <string name="sair">Sair</string>
+    <string name="info">Informação</string>
+    <string name="fechar">Fechar</string>
+    <string name="titulotermos">Termos de utilização</string>
+    <string name="politica">Politica de privacidade</string>
+    <string name="titulodefinicoes">Definições</string>
+    <string name="developer">Powered by: Denis Petrov</string>
+    <string name="maisinfo">Informações adicionais em: www.arvore.pt</string>
+    <string name="versaoapp">Versão da aplicação: 1.0"</string>
+    <string name="nomeapp">Nome da aplicação: EAPA</string>
+    <string name="sobre">Apresentação</string>
+    <string name="entrar">Entrar</string>
+    <string name="apresentacao">A Escola Árvore é uma escola profissional vocacionada para formações que exigem competências artísticas, em particular no domínio das expressões plásticas. Situada na zona histórica da cidade do Porto, procura dar expressão ao projeto Árvore, de formação alternativa pela via da arte.</string>
+    <string name="versaoandroid">Versão do Android: 4.2 ou superior</string>
+    <string name="tituloinfo">Informação</string>
+    <string name="settings1">Manter sessão iniciada</string>
+    <string name="settings2">Atualizaçoẽs automáticas</string>
+    <string name="guardar">Guardar e sair</string>
+    <string name="login">Iniciar Sessão</string>
+    <string name="intro">Bem vindo!</string>
+    <string name="fb">Facebook</string>
+    <string name="youtube">Youtube</string>
+    <string name="logo">Escola Artistica e Profissional da Árvore</string>
+    <string name="repordefinicoes">Repor as definições originais</string>
+    <string name="settings3">Atualizar apenas por Wi-Fi</string>
+    <string name="titulopolitica">Política de privacidade</string>
+    <string name="politicadeprivacidade">Os elementos de informação pessoal solicitados nesta aplicação, nomeadamente o endereço de 
+correio electrónico, destinam-se exclusivamente a uso administrativo e informático no âmbito 
+estrito dos serviços solicitados pelo utilizador através desta aplicação. 
+Escola Artística e Profissional da Árvore, compromete-se a respeitar a legislação em vigor sobre 
+protecção de dados pessoais e a não ceder, sob qualquer forma ou condição, esta informação 
+a entidades terceiras.</string>
+	<string name="termos">Ao instalar e utilizar esta aplicação, o utilizador aceita ficar vinculado a estes Termos de Utilização e aos termos de utilização de website ao qual acede para utilizar esta aplicação. O acesso a quaisquer serviços da Escola Artistica e Profissional da Árvore (EAPA) através da nossa aplicação. Reservamos o direito de alterar estes Termos de Utilização de tempos a tempos, por isso, o utilizador deve reler esta página de vez em quando para se manter a par de quaisquer alterações.
+</string>
+	<string name="atualizar">Atualizar</string>
+	<string name="direitos">Árvore 2014 Todos os direitos reservados</string>
+
+</resources>

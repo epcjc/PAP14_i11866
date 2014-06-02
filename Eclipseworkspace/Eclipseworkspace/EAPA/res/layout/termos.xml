@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <TextView
+        android:id="@+id/termosTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layerlist"
+        android:paddingTop="5dp"
+        android:text="@string/titulotermos"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#30b3e3" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="339dp"
+        android:layout_above="@+id/termosBt1"
+        android:layout_below="@+id/termosTitulo"
+        android:background="@drawable/layerlist" >
+
+            <TextView
+                android:id="@+id/termosTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="#000"
+                android:gravity="left"
+                android:paddingTop="5dp"
+                android:text="@string/termos"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/termosBt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bbkg"
+        android:text="@string/fechar"
+        android:textColor="#fff" />
+
+</RelativeLayout>
