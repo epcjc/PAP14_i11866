@@ -1,12 +1,13 @@
 package com.example.eapa;
 
-
-
+//Imports
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -15,15 +16,17 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
+import org.apache.http.params.HttpParams;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -33,15 +36,35 @@ import android.widget.Toast;
 
 
 
-
- 
 public class startlogin extends Activity implements OnClickListener{
+	//Aqui são criados vários objectos
+	EditText e1,e2;
+    ProgressDialog dialog = null;
+    TextView tv;
+    Context c;
+    private final HttpClient httpclient = new DefaultHttpClient();
+    final HttpParams params = httpclient.getParams();
+    HttpResponse response;
+    private ProgressBar pb;
+    
+    // flag for Internet connection status
+    Boolean isInternetPresent = false;
+     
+    // Connection detector class
+    ConnectionDetector cd;
+    
+    
+  ////////////////////////////////////////////////////////
+  //Aqui os objectos são identificados através do seu "ID"
+  ////////////////////////////////////////////////////////
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        //Layout startlogin.xml em: EAPA/res/layout
         this.setContentView(R.layout.startlogin);
-        //LayoutInflater factory = getLayoutInflater();
-	    //View regisText = factory.inflate(R.layout.loginbg, null);
+        
+        //Botões e imageButtons
         View entrar = findViewById(R.id.loginBtEntrar);
         View sair = findViewById(R.id.loginBtSair);
         View escola = findViewById(R.id.imageButton3);
@@ -53,118 +76,133 @@ public class startlogin extends Activity implements OnClickListener{
         entrar.setOnClickListener(this);
         sair.setOnClickListener(this);
         
+        //EditText email e pw
+        e1=(EditText)findViewById(R.id.email);
+        e2=(EditText)findViewById(R.id.pw);
         
+        // ProgressBar
+        pb=(ProgressBar)findViewById(R.id.progressBar1);
+        pb.setVisibility(View.GONE);
+        c=this;  
         
-    }
-    
-    public void showToast(){
-    	Toast.makeText(this,"toast", Toast.LENGTH_LONG).show();
-    	}
-    
-    private boolean isEmpty(EditText email, EditText pw) {
-        if (email.getText().toString().trim().length() > 0 && pw.getText().toString().trim().length() > 0) {
-            return false;
-        } else {
-            return true;
-        }
+        // creating connection detector class instance
+        cd = new ConnectionDetector(getApplicationContext());
     }
     
     
-    /////////////////////////////////////////////////////////
-    //Http post || login
-    /////////////////////////////////////////////////////////
-
-    private class MyAsyncTask extends AsyncTask<String, Integer, Double> {
-
-        @Override
-        protected Double doInBackground(String... params) {
-            // TODO Auto-generated method stub
-            postData(params[0]);
-            return null;
-        }
-
-        protected void onPostExecute(Double result) {
-            //pb.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "command sent",
-                    Toast.LENGTH_LONG).show();
-        }
-
-        protected void onProgressUpdate(Integer... progress) {
-            //pb.setProgress(progress[0]);
-        }
-
-        public void postData(String valueIWantToSend) {
-            // Create a new HttpClient and Post Header
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://recursos.arvore.pt/index.php");
-
-            try {
-            	EditText email = (EditText) findViewById(R.id.email);
-			    EditText pw = (EditText) findViewById(R.id.pw);
-            	ArrayList<BasicNameValuePair> pairs = new ArrayList<BasicNameValuePair>();
-	 		    String stremail = email.getText().toString();
-	 		    String strpw = pw.getText().toString();
-	 	            pairs.add(new BasicNameValuePair("email", stremail));
-	 			    pairs.add(new BasicNameValuePair("senha", strpw));
-                httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-                // Execute HTTP Post Request
-                HttpResponse response = httpclient.execute(httppost);
-
-            } catch (ClientProtocolException e) {
-                // TODO Auto-generated catch block
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
+    //////////////////////////////////////////
+    // Dialogo em caso de não existir ligação á internet
+    //////////////////////////////////////////
+    public void ShowDialog(){
+		AlertDialog.Builder mensagem = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+        mensagem.setTitle("Conexão");
+        mensagem.setIcon(android.R.drawable.ic_dialog_alert);
+        mensagem.setMessage("Tem de estar ligado à internet para continuar a utilizar esta aplicação.");
+        mensagem.setNeutralButton(android.R.string.ok,
+                new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
             }
-        }
+        });
+        AlertDialog alert = mensagem.create();
+        alert.show();
+	}
+    
+    
+    /////////////////////////////////////////////////////////
+    //Http POST, login em segundo plano
+    /////////////////////////////////////////////////////////
+    
+        private class MyAsyncTask extends AsyncTask<String, Integer, String>{
+       
 
-    }
+            @Override
+            protected String doInBackground(String... params) {
+                // TODO Auto-generated method stub
+                String s=postData(params);
+                return s;
+            }
+
+            protected void onPostExecute(String result){
+                pb.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            }
+            protected void onProgressUpdate(Integer... progress){
+                pb.setProgress(progress[0]);
+            }
+
+            public String postData(String valueIWantToSend[]) {
+                // Create a new HttpClient and Post Header
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpPost httppost = new HttpPost("https://posttestserver.com/post.php");
+                 String origresponseText="";
+                try {
+                    // Add your data
+                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                    nameValuePairs.add(new BasicNameValuePair("param1",valueIWantToSend[0]));
+                    nameValuePairs.add(new BasicNameValuePair("param2", valueIWantToSend[1]));
+                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+             /* execute */
+                    HttpResponse response = httpclient.execute(httppost);
+                      response.getEntity();
+    origresponseText=readContent(response);
+                } 
+          catch (ClientProtocolException e) {
+                    // TODO Auto-generated catch block
+                } 
+          catch (IOException e) {
+                    // TODO Auto-generated catch block
+                }
+              String responseText = origresponseText.substring(7, origresponseText.length());
+                return responseText;
+            }
+           
+
+        }
+        String readContent(HttpResponse response)
+        {
+            String text = "";
+            InputStream in =null;
+             
+            try {
+                in = response.getEntity().getContent();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+                while ((line = reader.readLine()) != null) {
+                      sb.append(line + "\n");
+                    }
+                    text = sb.toString();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+               
+            } catch (IOException e) {
+                  e.printStackTrace();
+            }
+            finally {
+                try {
+
+                  in.close();
+                } catch (Exception ex) {
+                }
+                }
+
+    return text;
+        }
     
-    ///////////////////////////////////////////////////////
-    
-    public void postData() {
-   	
-        // Create a new HttpClient and Post Header
-	    	 try {
-	 	        HttpClient client = new DefaultHttpClient();  
-	 	        String postURL = "http://recursos.arvore.pt/index.php";
-	 	        HttpPost post = new HttpPost(postURL);
-	 	       EditText email = (EditText) findViewById(R.id.email);
-			    EditText pw = (EditText) findViewById(R.id.pw);
-	 	        ArrayList<BasicNameValuePair> pairs = new ArrayList<BasicNameValuePair>();
-	 		    String stremail = email.getText().toString();
-	 		    String strpw = pw.getText().toString();
-	 	            pairs.add(new BasicNameValuePair("email", stremail));
-	 			    pairs.add(new BasicNameValuePair("senha", strpw));
-	 	            UrlEncodedFormEntity ent = new UrlEncodedFormEntity(pairs,HTTP.UTF_8);
-	 	            post.setEntity(ent);
-	 	            HttpResponse responsePOST = client.execute(post);
-	 	            HttpEntity resEntity = responsePOST.getEntity();  
-	 	            Toast.makeText(startlogin.this,resEntity.toString(), Toast.LENGTH_LONG).show();
-	 	            if (resEntity != null) {    
-	 	                Log.i("RESPONSE",EntityUtils.toString(resEntity));
-	 	                Toast.makeText(startlogin.this,resEntity.toString(), Toast.LENGTH_LONG).show();
-	 	            }
-	 	    } catch (Exception e) {
-	 	        e.printStackTrace();
-	 	        Toast.makeText(startlogin.this,e.toString(), Toast.LENGTH_LONG).show();
-	 	    }
-	    	 
-	 		//Intent intent = new Intent(getBaseContext(), MainActivity.class);
-	 		//startActivity(intent);
-	 		//Toast.makeText(startlogin.this,"Login Efetuado com Sucesso! ", Toast.LENGTH_LONG).show();
-	 		//finish();
-    	}
-	    
+    ////////////////////////////////////////////////////////////////////////
+    //Recebe os dados de EditText e executa o POST
+    ///////////////////////////////////////////////////////////////////////
 	  public void entrar(){
-		    EditText email = (EditText) findViewById(R.id.email);
-		    EditText pw = (EditText) findViewById(R.id.pw);
-			if(this.isEmpty(email, pw)==false){
+		  	final String s1=e1.getText().toString();
+			final String s2=e2.getText().toString();
+			if(this.isEmpty(s1, s2)==false){
 				TextView campos = (TextView)findViewById(R.id.camposvazios);
 				campos.setText("");
- 	            Toast.makeText(startlogin.this,"Aguarde... ", Toast.LENGTH_LONG).show();
- 	           new MyAsyncTask().execute("hey");
- 	          
+				pb.setVisibility(View.VISIBLE);              
+				new MyAsyncTask().execute(s1,s2);
+ 	         Intent intent = new Intent(getBaseContext(), MainActivity.class);
+ 	 			startActivity(intent);
 			} else{
 				TextView campos = (TextView)findViewById(R.id.camposvazios);
 				campos.setText("Preencha os campos necessários");
@@ -172,20 +210,47 @@ public class startlogin extends Activity implements OnClickListener{
 			}
 			
 	  }
-    
+	  
+	  //////////////////////////////////////////////////////////
+	  //Verifica se os campos email e pw estão preenchidos
+	  //////////////////////////////////////////////////////////
+	  
+	   private boolean isEmpty(String email, String pw) {
+	        if (email.length() > 0 && pw.length() > 0) {
+	            return false;
+	        } else {
+	            return true;
+	        }
+	    }
+	  
+    ///////////////////////////////////////////////////////////
+    // Logotipos e botões 
+	//////////////////////////////////////////////////////////
 	@Override
 	public void onClick(View arg0) {
 		if(arg0.getId() == R.id.loginBtEntrar){
-		    entrar();
+            // get Internet status
+            isInternetPresent = cd.isConnectingToInternet();
+            // check for Internet status
+            if (isInternetPresent) {
+                // Internet Connection is Present
+                // make HTTP requests
+            	entrar();
+            } else {
+                // Internet connection is not present
+            		ShowDialog();
+
+            }
+		    
 		}
 		else if (arg0.getId() == R.id.imageButton1){
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/user/arvorecgi"));
 			startActivity(browserIntent);
 		} else if (arg0.getId() == R.id.imageButton2){
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/pages/Escola-%C3%81rvore/112003068874690"));
 			startActivity(browserIntent);
 		}else if (arg0.getId() == R.id.imageButton3){
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.arvore.pt/"));
 			startActivity(browserIntent);
 		}
 		else if (arg0.getId() == R.id.loginBtSair){

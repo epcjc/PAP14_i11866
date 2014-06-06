@@ -1,5 +1,5 @@
 package com.example.eapa;
-
+//Imports
 import java.util.Locale;
 
 import android.app.ActionBar;
@@ -40,13 +40,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public WebView WebViewTab3;
 	private static final int RESULT_SETTINGS = 1;
 	
-	//botÃµes do menu
+
 	
+	///////////////////////////////////////////////////////
+	//A App procura por atualizações 
+	///////////////////////////////////////////////////////
 	public void atualizar(){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
         mensagem.setTitle("Atualizar");
         mensagem.setIcon(android.R.drawable.ic_dialog_info);
-        mensagem.setMessage("NÃ£o existem atualizaÃ§Ãµes disponÃ­veis neste momento.");
+        mensagem.setMessage("Não existem atualizações disponíveis neste momento.");
         mensagem.setNeutralButton(android.R.string.ok,
                 new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -57,7 +60,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         alert.show();
 	}
 	
-	
+	/////////////////////////////////////////////////////////
+	// Opções do menu
+	////////////////////////////////////////////////////////
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	    	
@@ -83,7 +88,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    }
 	}
 	
-	// teste
+	// teste definições
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -97,18 +102,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 
 	}
-	
-	/*public void Escreverficheiro(){
-		EditText email = (EditText) findViewById(R.id.txtEmail);
-	    EditText pw = (EditText) findViewById(R.id.txtPassword);
-	    String FILENAME = "hello_file";
-	    Strin
-	    FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-		fos.write(email.toString());
-		fos.newLine();
-		fos.write(pw.toString());
-		fos.close();
-	}*/
 	
 	private void showUserSettings() {
 		SharedPreferences sharedPrefs = PreferenceManager
@@ -205,7 +198,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
         
   
-        // Ã© aqui que iniciam os fragments
+//////////////////////////////////////////////////
+//Aqui iniciam os fragments
+//////////////////////////////////////////////////
         @Override
         public Fragment getItem(int position) {
             Fragment fragment = null;
@@ -232,13 +227,20 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             return fragment;
 			
         }
-
+        
+        /////////////////////////////////////////////////////
+        //Numero de fragmentos
+        /////////////////////////////////////////////////////
         @Override
         public int getCount() {
             // Show 4 total pages.
             return 4;
         }
 
+        
+        ///////////////////////////////////////////////////////////
+        //Aqui é dado o titulo a cada fragmento 
+        //////////////////////////////////////////////////////////
         @Override
         public CharSequence getPageTitle(int position) {
             Locale l = Locale.getDefault();
@@ -257,56 +259,57 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     
+    /////////////////////////////////////////////////////////////
+    //Fragment créditos (WebView e 3 btns)
+    /////////////////////////////////////////////////////////////
+    
     public static class Creditos extends Fragment {
 
     	public static final String ARG_SECTION_NUMBER = "section_number";
     	
         public Creditos() {
-        	
         }
-        
         
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
         	View mainView1 = (View) inflater.inflate(R.layout.creditos2, container, false);
             final WebView WebViewCreditos = (WebView) mainView1.findViewById(R.id.fragment_creditos);
-          // programar webview 
+            // programar webview 
             WebViewCreditos.setWebViewClient(new WebViewClient());
-            //WebViewCreditos.getSettings().setJavaScriptEnabled(true); //javascript
+            //WebViewCreditos.getSettings().setJavaScriptEnabled(true);
             WebViewCreditos.getSettings().setLoadWithOverviewMode(true);
             WebViewCreditos.getSettings().setUseWideViewPort(true);
             WebViewCreditos.getSettings().setBuiltInZoomControls(true); 
-            WebViewCreditos.loadUrl("mail.google.com");
-            //WebViewCreditos.loadUrl("http://recursos.quizzionarium.pt/");
-            // programar o botÃ£o "VOLTAR"
+            WebViewCreditos.loadUrl("http://recursos.arvore.pt/");
+
+            
+            // programar o botão "VOLTAR" bt1
             final Button bt1 = (Button) mainView1.findViewById(R.id.My_btn1);
             bt1.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            		//adicionei FINAL to webview
             	WebViewCreditos.goBack();
-
             	}});
-            // ATUALIZAR - BOTÃ‚O 3
+            // Início - BOTÃO 3
             final Button bt3 = (Button) mainView1.findViewById(R.id.My_btn3);
             bt3.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            		
-            	WebViewCreditos.loadUrl("http://recursos.arvore.pt/index.php");
-
+            	WebViewCreditos.loadUrl("http://recursos.arvore.pt/");
             	}});
-            // AVANÃ‡AR
+            // AVANÇAR bt2
             final Button bt2 = (Button) mainView1.findViewById(R.id.My_btn2);
             bt2.setOnClickListener(new View.OnClickListener() {
-            	public void onClick(View v) {
-            		
+            	public void onClick(View v) {	
             	WebViewCreditos.goForward();
-
             	}});
 
             return mainView1;
         }
     }
+    
+    ///////////////////////////////////////////////////
+    //Fragment Equipamentos
+    ///////////////////////////////////////////////////
     
     public static class Equipamento extends Fragment {
 
@@ -327,29 +330,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             WebViewEquipamentos.getSettings().setBuiltInZoomControls(true); 
             WebViewEquipamentos.loadUrl("http://recursos.arvore.pt/equipamentos.php?idtipoequipamento=25");
             
-         // programar o botÃ£o "VOLTAR"
+         // programar o botão "VOLTAR" bt4
             final Button bt4 = (Button) mainView2.findViewById(R.id.My_btn4);
             bt4.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            		//adicionei FINAL to webview
             	WebViewEquipamentos.goBack();
-
             	}});
-            // ATUALIZAR - BOTÃ‚O 6
+            // Início - BOTÃO 6
             final Button bt6 = (Button) mainView2.findViewById(R.id.My_btn6);
             bt6.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            		
             	WebViewEquipamentos.loadUrl("http://www.google.com");
-
             	}});
-            // AVANÃ‡AR
+            // AVANÇAR bt 5
             final Button bt5 = (Button) mainView2.findViewById(R.id.My_btn5);
             bt5.setOnClickListener(new View.OnClickListener() {
-            	public void onClick(View v) {
-            		
+            	public void onClick(View v) {	
             	WebViewEquipamentos.goForward();
-
             	}});
             
             return mainView2;
@@ -358,22 +355,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     
     
     ////////////////////////////////////////////////////////////////////////////
-    // sem uso...
-    
-    
-    class informaion{
-    	
-    	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-        	View mainViewInfo = (View) inflater.inflate(R.layout.information, container, false);
-        	Button infoBt1 = (Button) mainViewInfo.findViewById(R.id.infoBt1);
-            infoBt1.setOnClickListener(new View.OnClickListener() {
-            	public void onClick(View v) {
-            		setContentView(R.layout.privacidade);
-            	}});
-            return mainViewInfo;
-        }
-    }
+    // Mais fragments
+    ///////////////////////////////////////////////////////////////////////////
     
     public static class Tab3 extends Fragment {
 
@@ -393,25 +376,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             WebViewTab3.getSettings().setLoadWithOverviewMode(true);
             WebViewTab3.getSettings().setUseWideViewPort(true);
             WebViewTab3.getSettings().setBuiltInZoomControls(true); 
-            WebViewTab3.loadUrl("http://www.google.comâ€Ž");
+            WebViewTab3.loadUrl("http://www.google.com");
             
-         // programar o botÃ£o "VOLTAR"
+         // programar o botão "VOLTAR" bt7
             final Button bt7 = (Button) mainView3.findViewById(R.id.My_btn7);
             bt7.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            		
             	WebViewTab3.goBack();
-
             	}});
-            // ATUALIZAR - BOTÃ‚O 9
+            
+            // ATUALIZAR - BOTÃO 9
             final Button bt9 = (Button) mainView3.findViewById(R.id.My_btn9);
             bt9.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            		
             	WebViewTab3.loadUrl("http://www.google.com");
-
             	}});
-            // AVANÃ‡AR
+            
+            // AVANÇAR bt8 
             final Button bt8 = (Button) mainView3.findViewById(R.id.My_btn8);
             bt8.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
@@ -423,6 +404,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             return mainView3;
         }
     }
+    
+    /////////////////////////////////////////////////////////
+    //Fragment 4 sem uso para já
+    //////////////////////////////////////////////////////////
     
     public static class Tab4 extends Fragment {
 
