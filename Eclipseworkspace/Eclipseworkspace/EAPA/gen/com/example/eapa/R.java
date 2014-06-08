@@ -124,6 +124,8 @@ public final class R {
         public static final int tigre=0x7f050000;
     }
     public static final class string {
+        /**      Titulos de Fragmentos 
+         */
         public static final int action_settings=0x7f070015;
         public static final int app_name=0x7f070012;
         public static final int apresentacao=0x7f07002a;

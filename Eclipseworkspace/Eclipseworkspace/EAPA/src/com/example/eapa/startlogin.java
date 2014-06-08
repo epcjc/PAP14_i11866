@@ -32,7 +32,6 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 
@@ -52,8 +51,7 @@ public class startlogin extends Activity implements OnClickListener{
      
     // Connection detector class
     ConnectionDetector cd;
-    //teste
-    MyAsyncTask asyncTask =new MyAsyncTask();
+
     
   ////////////////////////////////////////////////////////
   //Aqui os objectos são identificados através do seu "ID"
@@ -61,8 +59,7 @@ public class startlogin extends Activity implements OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //teste
-        //asyncTask.delegate = this;
+
         
         
         //Layout startlogin.xml em: EAPA/res/layout
@@ -92,11 +89,7 @@ public class startlogin extends Activity implements OnClickListener{
         // creating connection detector class instance
         cd = new ConnectionDetector(getApplicationContext());
     }
-    //teste
-    //public void processFinish(String output){
-        //this you will received result fired from async class of onPostExecute(result) method.
-   // 	Toast.makeText(getApplicationContext(), output, Toast.LENGTH_LONG).show();
-   //   }
+
     
     //////////////////////////////////////////
     // Dialogo em caso de não existir ligação á internet
@@ -123,8 +116,6 @@ public class startlogin extends Activity implements OnClickListener{
     /////////////////////////////////////////////////////////
     
         private class MyAsyncTask extends AsyncTask<String, Integer, String>{
-        	//teste
-        	//public AsyncResponse delegate=null;
             @Override
             protected String doInBackground(String... params) {
                 // TODO Auto-generated method stub
@@ -140,6 +131,8 @@ public class startlogin extends Activity implements OnClickListener{
                 if(numero == 70300){
     				Intent intent = new Intent(getBaseContext(), MainActivity.class);
      	 			startActivity(intent);
+     	 			finish();
+     	 			
                 	
                 }else{
                 	TextView campos = (TextView)findViewById(R.id.camposvazios);

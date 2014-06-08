@@ -217,7 +217,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                  fragment = new Equipamento();
                  break;
             case 2:
-                 fragment = new Tab3();
+                 fragment = new Calendario();
                  break;
             case 3:
                  fragment = new Tab4();
@@ -254,10 +254,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     return getString(R.string.title_section1).toUpperCase(l);
                 case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
-                //case 2:
-                //    return getString(R.string.title_section3).toUpperCase(l);
-                //case 3:
-                //	return getString(R.string.title_section4).toUpperCase(l);
+                case 2:
+                    return getString(R.string.title_section3).toUpperCase(l);
+                case 3:
+                	return getString(R.string.title_section4).toUpperCase(l);
             }
             return null;
         }
@@ -286,7 +286,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             WebViewCreditos.getSettings().setLoadWithOverviewMode(true);
             WebViewCreditos.getSettings().setUseWideViewPort(true);
             WebViewCreditos.getSettings().setBuiltInZoomControls(true); 
-            WebViewCreditos.loadUrl("http://recursos.arvore.pt/");
+            WebViewCreditos.loadUrl("http://recursos.arvore.pt/equipamentos.php?idtipoequipamento=25");
 
             
             // programar o botão "VOLTAR" bt1
@@ -345,7 +345,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             final Button bt6 = (Button) mainView2.findViewById(R.id.My_btn6);
             bt6.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            	WebViewEquipamentos.loadUrl("http://www.google.com");
+            	WebViewEquipamentos.loadUrl("http://recursos.arvore.pt/equipamentos.php?idtipoequipamento=25");
             	}});
             // AVANÇAR bt 5
             final Button bt5 = (Button) mainView2.findViewById(R.id.My_btn5);
@@ -363,10 +363,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     // Mais fragments
     ///////////////////////////////////////////////////////////////////////////
     
-    public static class Tab3 extends Fragment {
+    public static class Calendario extends Fragment {
 
 		public static final String ARG_SECTION_NUMBER = "section_number";
-        public Tab3() {
+        public Calendario() {
         	
         }
         
@@ -381,7 +381,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             WebViewTab3.getSettings().setLoadWithOverviewMode(true);
             WebViewTab3.getSettings().setUseWideViewPort(true);
             WebViewTab3.getSettings().setBuiltInZoomControls(true); 
-            WebViewTab3.loadUrl("http://www.google.com");
+            WebViewTab3.loadUrl("http://www.calendarr.com/portugal/");
             
          // programar o botão "VOLTAR" bt7
             final Button bt7 = (Button) mainView3.findViewById(R.id.My_btn7);
@@ -394,7 +394,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             final Button bt9 = (Button) mainView3.findViewById(R.id.My_btn9);
             bt9.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View v) {
-            	WebViewTab3.loadUrl("http://www.google.com");
+            	WebViewTab3.loadUrl("http://www.calendarr.com/portugal/");
             	}});
             
             // AVANÇAR bt8 

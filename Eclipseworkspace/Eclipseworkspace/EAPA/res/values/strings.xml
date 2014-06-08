@@ -28,11 +28,15 @@
     <string name="app_name">EAPA</string>
     <string name="pw">Password:</string>
     <string name="email">Email:</string>
+    
+<!--     Titulos de Fragmentos -->
     <string name="action_settings">Definições</string>
     <string name="title_section1">Créditos</string>
     <string name="title_section2">Equipamento</string>
-    <string name="title_section3">Tab 3</string>
+    <string name="title_section3">Calendário</string>
     <string name="title_section4">info</string>
+    
+    
     <string name="voltar">Voltar</string>
     <string name="avancar">Avançar</string>
     <string name="refresh">Início</string>
