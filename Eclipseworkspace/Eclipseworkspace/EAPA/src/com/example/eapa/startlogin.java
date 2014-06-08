@@ -52,7 +52,8 @@ public class startlogin extends Activity implements OnClickListener{
      
     // Connection detector class
     ConnectionDetector cd;
-    
+    //teste
+    MyAsyncTask asyncTask =new MyAsyncTask();
     
   ////////////////////////////////////////////////////////
   //Aqui os objectos são identificados através do seu "ID"
@@ -60,6 +61,9 @@ public class startlogin extends Activity implements OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //teste
+        //asyncTask.delegate = this;
+        
         
         //Layout startlogin.xml em: EAPA/res/layout
         this.setContentView(R.layout.startlogin);
@@ -88,7 +92,11 @@ public class startlogin extends Activity implements OnClickListener{
         // creating connection detector class instance
         cd = new ConnectionDetector(getApplicationContext());
     }
-    
+    //teste
+    //public void processFinish(String output){
+        //this you will received result fired from async class of onPostExecute(result) method.
+   // 	Toast.makeText(getApplicationContext(), output, Toast.LENGTH_LONG).show();
+   //   }
     
     //////////////////////////////////////////
     // Dialogo em caso de não existir ligação á internet
@@ -109,13 +117,14 @@ public class startlogin extends Activity implements OnClickListener{
 	}
     
     
+
     /////////////////////////////////////////////////////////
     //Http POST, login em segundo plano
     /////////////////////////////////////////////////////////
     
         private class MyAsyncTask extends AsyncTask<String, Integer, String>{
-       
-
+        	//teste
+        	//public AsyncResponse delegate=null;
             @Override
             protected String doInBackground(String... params) {
                 // TODO Auto-generated method stub
@@ -125,7 +134,19 @@ public class startlogin extends Activity implements OnClickListener{
 
             protected void onPostExecute(String result){
                 pb.setVisibility(View.GONE);
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+                //teste
+                //delegate.processFinish(result);
+                int numero = result.toString().length();
+                if(numero == 70300){
+    				Intent intent = new Intent(getBaseContext(), MainActivity.class);
+     	 			startActivity(intent);
+                	
+                }else{
+                	TextView campos = (TextView)findViewById(R.id.camposvazios);
+    				campos.setText("O seu e-mail ou a sua senha estão incorretos.");
+                	
+                }
+                
             }
             protected void onProgressUpdate(Integer... progress){
                 pb.setProgress(progress[0]);
@@ -134,13 +155,13 @@ public class startlogin extends Activity implements OnClickListener{
             public String postData(String valueIWantToSend[]) {
                 // Create a new HttpClient and Post Header
                 HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httppost = new HttpPost("https://posttestserver.com/post.php");
+                HttpPost httppost = new HttpPost("http://recursos.arvore.pt/index.php");
                  String origresponseText="";
                 try {
                     // Add your data
                     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-                    nameValuePairs.add(new BasicNameValuePair("param1",valueIWantToSend[0]));
-                    nameValuePairs.add(new BasicNameValuePair("param2", valueIWantToSend[1]));
+                    nameValuePairs.add(new BasicNameValuePair("email",valueIWantToSend[0]));
+                    nameValuePairs.add(new BasicNameValuePair("senha", valueIWantToSend[1]));
                     httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
              /* execute */
                     HttpResponse response = httpclient.execute(httppost);
@@ -159,8 +180,7 @@ public class startlogin extends Activity implements OnClickListener{
            
 
         }
-        String readContent(HttpResponse response)
-        {
+        String readContent(HttpResponse response){	
             String text = "";
             InputStream in =null;
              
@@ -186,7 +206,7 @@ public class startlogin extends Activity implements OnClickListener{
                 } catch (Exception ex) {
                 }
                 }
-
+    
     return text;
         }
     
@@ -196,13 +216,14 @@ public class startlogin extends Activity implements OnClickListener{
 	  public void entrar(){
 		  	final String s1=e1.getText().toString();
 			final String s2=e2.getText().toString();
+			
 			if(this.isEmpty(s1, s2)==false){
 				TextView campos = (TextView)findViewById(R.id.camposvazios);
 				campos.setText("");
 				pb.setVisibility(View.VISIBLE);              
 				new MyAsyncTask().execute(s1,s2);
-				Intent intent = new Intent(getBaseContext(), MainActivity.class);
- 	 			startActivity(intent);
+
+
 			} else{
 				TextView campos = (TextView)findViewById(R.id.camposvazios);
 				campos.setText("Preencha os campos necessários");
@@ -255,5 +276,7 @@ public class startlogin extends Activity implements OnClickListener{
 		}
 		else if (arg0.getId() == R.id.loginBtSair){
 			super.finish();}}
+
+	
 
 }
