@@ -82,6 +82,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 				//start the info Activity
 				this.startActivity(intent2);
 				return true;
+	        case R.id.questoes:
+	        	Intent intent3 = new Intent(this,SendEmailActivity.class);
+				//start the info Activity
+				this.startActivity(intent3);
+				return true;
 	        	
 	        default:
 	            return super.onOptionsItemSelected(item);

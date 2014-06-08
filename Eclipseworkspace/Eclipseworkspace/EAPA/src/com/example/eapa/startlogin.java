@@ -201,7 +201,7 @@ public class startlogin extends Activity implements OnClickListener{
 				campos.setText("");
 				pb.setVisibility(View.VISIBLE);              
 				new MyAsyncTask().execute(s1,s2);
- 	         Intent intent = new Intent(getBaseContext(), MainActivity.class);
+				Intent intent = new Intent(getBaseContext(), MainActivity.class);
  	 			startActivity(intent);
 			} else{
 				TextView campos = (TextView)findViewById(R.id.camposvazios);
