@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="inicio"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Height="437" Width="600">
+    <Grid OpacityMask="Black" Height="426" VerticalAlignment="Bottom" >
+        <Button x:Name="info" Content="" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="131" Margin="310,282,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Denis\Documents\Visual Studio 2012\Projects\WpfApplication1\info.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Info</TextBlock>
+                        <TextBlock>Informações acerca da aplicação.</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="398" FontWeight="Bold" FontSize="36" Foreground="#FFFFC501" FontFamily="Calibri" Margin="0,-25,0,0"><Run Language="pt-pt" Text="Guia"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,23,0,0" TextWrapping="Wrap" Text="Responder" VerticalAlignment="Top" Height="24" Width="362" FontSize="16" FontFamily="Calibri" Foreground="#FF33B5E5" TextDecorations="Underline"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="305"><Run Language="pt-pt" Text="Responda, tire duvidas e/ou dê conselhos aos utilizadores acerca do equipamento e outros.  "/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,84,0,0" TextWrapping="Wrap" Text="Perguntas Frequentes" VerticalAlignment="Top" Height="24" Width="362" FontSize="16" FontFamily="Calibri" Foreground="#FF33B5E5" TextDecorations="Underline"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="305"><Run Language="pt-pt" Text="Esta função permite-lhe gerir a secção de &quot;Perguntas Frequentes&quot; do site, pode apagar, modificar  ou inserir novas."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,159,0,0" TextWrapping="Wrap" Text="Destaques" VerticalAlignment="Top" Height="24" Width="362" FontSize="16" FontFamily="Calibri" Foreground="#FF33B5E5" TextDecorations="Underline"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="305"><Run Language="pt-pt" Text="Destaques ou Avisos é uma secção do site que notifica o utilizador quando entra na página principal. Aqui pode adicionar, apagar ou alterar esse conteúdo."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,235,0,0" TextWrapping="Wrap" Text="Configurar Página" VerticalAlignment="Top" Height="24" Width="362" FontSize="16" FontFamily="Calibri" Foreground="#FF33B5E5" TextDecorations="Underline"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="305"><Run Language="pt-pt" Text="Com esta ferramente pode configurar as informações contidas no site, tais como, título, localização, contactos entre outros."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="362" FontSize="16" FontFamily="Calibri" Foreground="#FF33B5E5" TextDecorations="Underline"><Run Language="pt-pt" Text="Administradores"/><LineBreak/><Run Language="pt-pt"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="305"><Run Language="pt-pt" Text="Crie uma equipa, pode adicionar ou excluir contas de administrador para o site ou AdminTool lite."/></TextBlock>
+        <Button x:Name="ajuda1" Content="" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="131" Margin="459,10,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Denis\Documents\Visual Studio 2012\Projects\WpfApplication1\help.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Ajuda</TextBlock>
+                        <TextBlock>Aqui encontra a ajuda que precisa.</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="connfigura" Content="" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="131" Margin="310,10,0,0" BorderThickness="0">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Denis\Documents\Visual Studio 2012\Projects\WpfApplication1\configura.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Backoffice</TextBlock>
+                        <TextBlock>É redirecionado para o Backoffice online.</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="site" Content="" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="131" Margin="310,146,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Denis\Documents\Visual Studio 2012\Projects\WpfApplication1\Globe.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Website</TextBlock>
+                        <TextBlock>Abre o seu site.</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="sair1" Content="" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="131" Margin="459,282,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Denis\Documents\Visual Studio 2012\Projects\WpfApplication1\end.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Terminar sessão</TextBlock>
+                        <TextBlock>Termina a sessão e volta ao ecrã de login.</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="basedados" Content="" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="131" Margin="459,146,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Denis\Documents\Visual Studio 2012\Projects\WpfApplication1\Network.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Base de dados</TextBlock>
+                        <TextBlock>(Avançado)</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+    </Grid>
+</UserControl>

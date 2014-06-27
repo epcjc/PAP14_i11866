@@ -1,0 +1,69 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1" x:Class="config" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Height="437" Width="600">
+    <UserControl.Resources>
+        <local:i11866DataSet x:Key="I11866DataSet"/>
+        <CollectionViewSource x:Key="ConfigViewSource" Source="{Binding config, Source={StaticResource I11866DataSet}}"/>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource ConfigViewSource}" >
+        <Button Content="Guardar Alterações" HorizontalAlignment="Left" Margin="245,400,0,0" VerticalAlignment="Top" Width="123" Height="37" Background="#FF0074FF" Foreground="#FFFBFBFB" Click="Button_Click"/>
+        <Grid x:Name="Grid3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Margin="-1,44,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Nome:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="NomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-388,4" Grid.Row="1" Text="{Binding nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Mensagem:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="MensagemTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-389,4" Grid.Row="2" Text="{Binding mensagem, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Localizacao:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="LocalizacaoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-390,4" Grid.Row="3" Text="{Binding localizacao, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Contactos:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="ContactosTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-391,4" Grid.Row="4" Text="{Binding contactos, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Facebook:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="FacebookTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-387,4" Grid.Row="5" Text="{Binding facebook, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Youtube:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="YoutubeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-386,4" Grid.Row="6" Text="{Binding youtube, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Linkedin:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,3" Grid.Row="7" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="LinkedinTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-385,4" Grid.Row="7" Text="{Binding linkedin, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Twitter:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+            <TextBox x:Name="TwitterTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-384,4" Grid.Row="8" Text="{Binding twitter, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Google+:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+            <TextBox x:Name="GoogleTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-383,4" Grid.Row="9" Text="{Binding google, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="Pinterest:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+            <TextBox x:Name="PinterestTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-382,4" Grid.Row="10" Text="{Binding pinterest, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+            <Label Content="footer:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+            <TextBox x:Name="FooterTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,-381,4" Grid.Row="11" Text="{Binding footer, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="519"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="398" FontWeight="Bold" FontSize="36" Foreground="#FFFFC501" FontFamily="Calibri" Margin="-1,-4,0,0"><Run Language="pt-pt" Text="Configuração:"/></TextBlock>
+        <Grid x:Name="Grid1" HorizontalAlignment="Left" Margin="21,402,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="IdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+    </Grid>
+</UserControl>
