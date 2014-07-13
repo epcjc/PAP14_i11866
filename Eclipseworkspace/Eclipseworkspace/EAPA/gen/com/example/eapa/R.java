@@ -34,6 +34,7 @@ public final class R {
         public static final int youtube_icon=0x7f02000a;
     }
     public static final class id {
+        public static final int EditTextNumero=0x7f0a0026;
         public static final int My_btn1=0x7f0a0002;
         public static final int My_btn2=0x7f0a0004;
         public static final int My_btn3=0x7f0a0003;
@@ -49,7 +50,7 @@ public final class R {
         public static final int buttonSend=0x7f0a0028;
         public static final int camposvazios=0x7f0a001a;
         public static final int editTextMessage=0x7f0a0027;
-        public static final int editTextSubject=0x7f0a0026;
+        public static final int editTextNome=0x7f0a0025;
         public static final int email=0x7f0a0017;
         public static final int fragment_creditos=0x7f0a0001;
         public static final int fragment_equipamentos=0x7f0a0005;
@@ -96,7 +97,6 @@ public final class R {
         public static final int termosTitulo=0x7f0a003a;
         public static final int textView1=0x7f0a0023;
         public static final int textView2=0x7f0a0018;
-        public static final int textView5=0x7f0a0025;
         public static final int textViewSubject=0x7f0a0024;
         public static final int textemail=0x7f0a0016;
         public static final int textiniciarcessao=0x7f0a0015;
@@ -126,70 +126,71 @@ public final class R {
     public static final class string {
         /**      Titulos de Fragmentos 
          */
-        public static final int action_settings=0x7f070015;
-        public static final int app_name=0x7f070012;
-        public static final int apresentacao=0x7f07002a;
-        public static final int assunto=0x7f070002;
-        public static final int atualizar=0x7f07003a;
-        public static final int avancar=0x7f07001b;
-        public static final int developer=0x7f070024;
-        public static final int direitos=0x7f07003b;
-        public static final int email=0x7f070014;
-        public static final int entrar=0x7f070029;
-        public static final int enviar=0x7f070004;
-        public static final int fb=0x7f070032;
-        public static final int fechar=0x7f070020;
-        public static final int guardar=0x7f07002f;
-        public static final int info=0x7f07001f;
-        public static final int intro=0x7f070031;
-        public static final int linguagem=0x7f070005;
-        public static final int login=0x7f070030;
-        public static final int logo=0x7f070034;
-        public static final int maisinfo=0x7f070025;
-        public static final int mensagem=0x7f070003;
-        public static final int nomeapp=0x7f070027;
-        public static final int politica=0x7f070022;
-        public static final int politicadeprivacidade=0x7f070038;
-        public static final int pref_atualizacoes=0x7f07000d;
-        public static final int pref_atualizarAuto=0x7f07000e;
-        public static final int pref_atualizarAuto_summary=0x7f07000f;
-        public static final int pref_atualizarWIFI=0x7f070010;
-        public static final int pref_atualizarWIFI_summary=0x7f070011;
-        public static final int pref_autologin=0x7f07000b;
-        public static final int pref_autologin_summary=0x7f07000c;
-        public static final int pref_privado=0x7f07000a;
+        public static final int action_settings=0x7f070016;
+        public static final int app_name=0x7f070013;
+        public static final int apresentacao=0x7f07002b;
+        public static final int atualizar=0x7f07003b;
+        public static final int avancar=0x7f07001c;
+        public static final int developer=0x7f070025;
+        public static final int direitos=0x7f07003c;
+        public static final int email=0x7f070015;
+        public static final int entrar=0x7f07002a;
+        public static final int enviar=0x7f070005;
+        public static final int fb=0x7f070033;
+        public static final int fechar=0x7f070021;
+        public static final int guardar=0x7f070030;
+        public static final int info=0x7f070020;
+        public static final int intro=0x7f070032;
+        public static final int linguagem=0x7f070006;
+        public static final int login=0x7f070031;
+        public static final int logo=0x7f070035;
+        public static final int maisinfo=0x7f070026;
+        public static final int mensagem=0x7f070004;
+        public static final int nome=0x7f070002;
+        public static final int nomeapp=0x7f070028;
+        public static final int numero=0x7f070003;
+        public static final int politica=0x7f070023;
+        public static final int politicadeprivacidade=0x7f070039;
+        public static final int pref_atualizacoes=0x7f07000e;
+        public static final int pref_atualizarAuto=0x7f07000f;
+        public static final int pref_atualizarAuto_summary=0x7f070010;
+        public static final int pref_atualizarWIFI=0x7f070011;
+        public static final int pref_atualizarWIFI_summary=0x7f070012;
+        public static final int pref_autologin=0x7f07000c;
+        public static final int pref_autologin_summary=0x7f07000d;
+        public static final int pref_privado=0x7f07000b;
         /**      Defunições 
          */
-        public static final int pref_report=0x7f070006;
-        public static final int pref_send_report=0x7f070007;
-        public static final int pref_send_report_summary=0x7f070008;
-        public static final int pref_submit=0x7f070009;
-        public static final int pw=0x7f070013;
+        public static final int pref_report=0x7f070007;
+        public static final int pref_send_report=0x7f070008;
+        public static final int pref_send_report_summary=0x7f070009;
+        public static final int pref_submit=0x7f07000a;
+        public static final int pw=0x7f070014;
         public static final int questoes=0x7f070001;
-        public static final int refresh=0x7f07001c;
-        public static final int repordefinicoes=0x7f070035;
-        public static final int sair=0x7f07001e;
-        public static final int settings1=0x7f07002d;
-        public static final int settings2=0x7f07002e;
-        public static final int settings3=0x7f070036;
-        public static final int sobre=0x7f070028;
-        public static final int terminar=0x7f07001d;
-        public static final int termos=0x7f070039;
-        public static final int title_section1=0x7f070016;
-        public static final int title_section2=0x7f070017;
-        public static final int title_section3=0x7f070018;
-        public static final int title_section4=0x7f070019;
+        public static final int refresh=0x7f07001d;
+        public static final int repordefinicoes=0x7f070036;
+        public static final int sair=0x7f07001f;
+        public static final int settings1=0x7f07002e;
+        public static final int settings2=0x7f07002f;
+        public static final int settings3=0x7f070037;
+        public static final int sobre=0x7f070029;
+        public static final int terminar=0x7f07001e;
+        public static final int termos=0x7f07003a;
+        public static final int title_section1=0x7f070017;
+        public static final int title_section2=0x7f070018;
+        public static final int title_section3=0x7f070019;
+        public static final int title_section4=0x7f07001a;
         /**      Questões 
          */
         public static final int titulo=0x7f070000;
-        public static final int titulodefinicoes=0x7f070023;
-        public static final int tituloinfo=0x7f07002c;
-        public static final int titulopolitica=0x7f070037;
-        public static final int titulotermos=0x7f070021;
-        public static final int versaoandroid=0x7f07002b;
-        public static final int versaoapp=0x7f070026;
-        public static final int voltar=0x7f07001a;
-        public static final int youtube=0x7f070033;
+        public static final int titulodefinicoes=0x7f070024;
+        public static final int tituloinfo=0x7f07002d;
+        public static final int titulopolitica=0x7f070038;
+        public static final int titulotermos=0x7f070022;
+        public static final int versaoandroid=0x7f07002c;
+        public static final int versaoapp=0x7f070027;
+        public static final int voltar=0x7f07001b;
+        public static final int youtube=0x7f070034;
     }
     public static final class style {
         /** 

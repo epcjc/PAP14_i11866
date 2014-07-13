@@ -4,7 +4,8 @@
 <!--     Questões -->
 	<string name="titulo">Questões</string>
 	<string name="questoes">Aquí podes esclarecer as tuas questões e pedir informações acerca do equipamento.</string>
-    <string name="assunto">Assunto:</string>
+    <string name="nome">Nome:</string>
+    <string name="numero">Numero do aluno:</string>
    	<string name="mensagem">Mensagem:</string>
     <string name="enviar">Enviar</string>
     <string name="linguagem">*Escreve de forma clara e correta.</string>
